@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HeroesComponent }      from './heroes.component';
 import { DashboardComponent } from './dashboard.component';
 import { HeroDetailComponent } from './hero-detail.component';
+import { ProfileComponent } from "./profile/profile.component";
 
 const appRoutes: Routes = [
     {
@@ -19,6 +20,10 @@ const appRoutes: Routes = [
     {
         path: 'heroes',
         component: HeroesComponent
+    },
+    {
+        path: 'profiles',
+        component: ProfileComponent
     },
     {
         path: '',
