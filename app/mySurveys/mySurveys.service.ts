@@ -6,7 +6,7 @@ import {MySurvey} from './mySurvey';
 
 @Injectable()
 export class MySurveysService {
-    private surveysURL = 'http://localhost:8080/g4tc/v1/api/mysurveys';  // URL to web api
+    private surveysURL = 'http://localhost:8080/mms/api/mysurveys';  // URL to web api
     constructor(private http: Http) {
     }
 
@@ -24,7 +24,7 @@ export class MySurveysService {
             let options = new RequestOptions({headers: headers});
             return this.http.get(this.surveysURL, options)
                 .map((res: Response) => res.json() as MySurvey[])
-                .do(res => console.log("token: " + JSON.stringify(res)))
+                .do(res => console.log("Survey: " + JSON.stringify(res)))
                 .catch(this.handleError);
         } else {
             return this.surveys;

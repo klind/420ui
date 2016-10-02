@@ -24,7 +24,7 @@ export class RegisterComponent {
     onSubmit() {
         if (localStorage.getItem("token") === null) {
             this.registerService.register(this.model)
-                .do(res => console.log("token: " + JSON.stringify(res)))
+                .do(res => console.log("Register: " + JSON.stringify(res)))
                 .subscribe(
                     res => this.save(res.token, this.model.email),
                     err => this.handleError(err),

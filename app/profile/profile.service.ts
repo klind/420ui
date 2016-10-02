@@ -11,7 +11,7 @@ import {Profile} from './profile';
 
 @Injectable()
 export class ProfileService {
-    private profilesURL = 'http://localhost:8080/g4tc/v1/api/profiles';  // URL to web api
+    private profilesURL = 'http://localhost:8080/mms/api/profiles';  // URL to web api
     constructor(private http: Http) {
     }
 
@@ -38,7 +38,7 @@ export class ProfileService {
 
         return this.http.get(this.profilesURL + "/email/" + email, options)
             .map((res: Response) => res.json() as Profile)
-            .do(res => console.log("token: " + JSON.stringify(res)))
+            .do(res => console.log("Profile: " + JSON.stringify(res)))
             .catch(this.handleError);
     }
 
@@ -51,7 +51,7 @@ export class ProfileService {
 
         return this.http.get(this.profilesURL + "/" + id, options)
             .map((res: Response) => res.json() as Profile)
-            .do(res => console.log("token: " + JSON.stringify(res)))
+            .do(res => console.log("Profile: " + JSON.stringify(res)))
             .catch(this.handleError);
     }
 
