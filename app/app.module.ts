@@ -1,4 +1,4 @@
-import {NgModule}      from '@angular/core';
+import {NgModule}   from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule, JsonpModule}    from '@angular/http';
 import {AppComponent}         from './app.component';
@@ -11,11 +11,6 @@ import {ProfilesComponent}    from './profiles/profiles.component';
 import {ProfilesService}      from './profiles/profiles.service';
 import {RegisterComponent}    from "./register/register.component";
 import {RegisterService}      from "./register/register.service";
-//import {LogoutService}        from "./logout/logout.service";
-// Imports for loading & configuring the in-memory web api
-/*import { InMemoryWebApiModule } from 'angular2-in-memory-web-api';*/
-/*import { InMemoryDataService }  from './in-memory-data.service';*/
-/*import { InMemoryProfileDataService }  from './in-memory-data.profile.service';*/
 import {LoginComponent} from "./login/login.component";
 import {LoginService} from "./login/login.service";
 import './rxjs-extensions';
