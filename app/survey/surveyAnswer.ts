@@ -1,7 +1,8 @@
 
 
+import {Question} from "../question/question";
 export class SurveyAnswer {
-    constructor(surveyId:number, startTime:string, startTimeEffect:string, peakTime:string, peakLast:number, timeEffectEnd:string, potency:number, potencyStrength:number, eat:boolean) {
+    /*constructor(surveyId:number, startTime:string, startTimeEffect:string, peakTime:string, peakLast:number, timeEffectEnd:string, potency:number, potencyStrength:number, eat:boolean) {
         this.surveyId = surveyId;
         this.startTime = startTime;
         this.startTimeEffect = startTimeEffect;
@@ -11,8 +12,9 @@ export class SurveyAnswer {
         this.potency = potency;
         this.potencyStrength = potencyStrength;
         this.eat = eat;
-    }
+    }*/
     surveyId:number;
+    name:string;
     startTime:string;
     startTimeEffect:string;
     peakTime:string;
@@ -21,6 +23,10 @@ export class SurveyAnswer {
     potency:number;
     potencyStrength:number;
     eat:boolean;
+
+    constructor() {
+
+    }
 
 
 }

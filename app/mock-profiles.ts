@@ -1,6 +1,7 @@
 import { Profile } from './profile/profile';
 
 
+/*
 export const PROFILES: Profile[] = [
     {
         "id": 1,
@@ -8,7 +9,6 @@ export const PROFILES: Profile[] = [
         "firstName": "John",
         "middleName": "Y",
         "lastName": "Doe",
-        "dob": "1970-01-01",
         "phone": "702-555-5555",
         "gender": "M",
         "weight": 180,
@@ -64,3 +64,4 @@ export const PROFILES: Profile[] = [
     }
 ];
 
+*/

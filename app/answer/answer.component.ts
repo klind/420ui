@@ -1,45 +1,47 @@
 import {Component}            from '@angular/core';
-import {Survey}              from './survey';
-import {SurveyService}       from './survey.service';
+import {Answer}              from '../survey/answer';
+import {AnswerService}       from './answer.service';
 import {OnInit}               from '@angular/core';
 import {Router, ActivatedRoute, Params}               from '@angular/router';
 import {Observable}           from 'rxjs/Observable';
 import {QuestionRange}        from '../question/question.range';
 import {map}                  from "rxjs/operator/map";
-//import {NKDatetime} from 'ng2-datetime/ng2-datetime';
+
 
 @Component({
-    selector: 'survey',
-    templateUrl: 'app/survey/survey.component.html'
+    selector: 'answer',
+    templateUrl: 'app/answer/answer.component.html'
 })
-export class SurveyComponent implements OnInit {
+export class AnswerComponent implements OnInit {
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
-                private surveyService: SurveyService) {
+                private answerService: AnswerService) {
     }
 
-    model: Survey;// = new Survey(null, "Survey 1", "10:00AM", "11:00AM", "11:30AM", 30, "12:00PM", 3, 2, true);
+    model: Answer;// = new Answer(null, "Answer 1", "10:00AM", "11:00AM", "11:30AM", 30, "12:00PM", 3, 2, true);
 
     onSubmit() {
         console.log(JSON.stringify(this.model))
-        this.surveyService.saveSurvey(this.model)
+        this.answerService.saveAnswer(this.model)
             .subscribe();
     }
 
     ngOnInit(): void {
 
-        this.route.params
+
+
+        /*this.route.params
             .subscribe(params => {
                 let id = params['id'];
                 console.log("id " + id);
-                this.surveyService.getSurveyById(id)
+                this.answerService.getAnswerById(id)
                     .subscribe(
                         p => this.model = p,
                         err => this.handleError(err),
-                        () => console.log("getting survey complete")
+                        () => console.log("getting answer complete")
                     );
-            });
+            });*/
 
 
     }

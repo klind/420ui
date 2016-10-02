@@ -1,13 +1,12 @@
+import { Component }            from '@angular/core';
+import { OnInit }               from '@angular/core';
+import {QuestionRange}          from "./question.range";
+
 @Component({
     selector: 'question-range',
-    templateUrl: 'app/dashboard.component.html',
-    styleUrls: ['app/dashboard.component.css']
-
+    templateUrl: 'app/question/question.range.component.html'
 })
-export class QuestionRange {
-    id:number;
-    category:string;
-    lower:number;
-    upper:number;
+export class QuestionRangeComponent {
+    model = new QuestionRange();
 
 }

@@ -1,0 +1,25 @@
+<h2>My Surveys</h2>
+
+<div class="container">
+
+
+    <div *ngIf="surveys===null || (surveys!=null && surveys.length===0)">
+        <h3>No surveys have been assigned to you yet.</h3>
+    </div>
+
+    <ul>
+        <li *ngFor="let survey of surveys">
+            <div *ngIf="survey.answered">
+                {{ survey.name }} - Done
+            </div>
+            <div *ngIf="!survey.answered">
+                <a [routerLink]="['/survey', survey.id]">
+                    {{survey.name}}
+                </a>
+            </div>
+
+        </li>
+    </ul>
+
+
+</div>

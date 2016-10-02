@@ -1,15 +1,12 @@
 import { Injectable }                               from '@angular/core';
 import { Headers, Http, RequestOptions, Response }  from '@angular/http';
 import { Observable }                               from 'rxjs/Observable';
-
 import 'rxjs/add/operator/toPromise';
+import { Profile } from '../profile/profile';
 
-import { Profile } from './profile';
-
-/*import { PROFILES } from '../mock-profiles';*/
 
 @Injectable()
-export class ProfileService {
+export class ProfilesService {
     private profilesURL = 'http://localhost:8080/g4tc/v1/api/profiles';  // URL to web api
     constructor(private http:Http) {
     }
@@ -17,7 +14,6 @@ export class ProfileService {
     getProfiles():Observable<Profile[]> {
 
         let token = localStorage.getItem("token");
-
         let headers = new Headers({'Content-Type': 'application/json'});
         headers.append('Authorization', 'Bearer ' + token);
         let options = new RequestOptions({headers: headers});
@@ -26,7 +22,7 @@ export class ProfileService {
             .then(response => response.json() as Profile[])
             .catch(this.handleError);*/
 
-        let p: Profile[];
+        /*let p: Profile[];*/
 
         return this.http.get(this.profilesURL, options)
             .map((res: Response) => res.json())

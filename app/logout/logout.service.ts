@@ -1,103 +1,55 @@
-import { Injectable }                               from '@angular/core';
-import { Headers, Http, RequestOptions, Response }  from '@angular/http';
-import { Observable }                               from 'rxjs/Observable';
-import { Login }                                    from './login';
-import { Token }                                    from "../shared/token";
-import { stringify }                                from "querystring";
-/*import 'rxjs/add/operator/toPromise';*/
-/*import './rxjs-operators';*/
+import {Injectable}                               from '@angular/core';
+import {Headers, Http, RequestOptions, Response}  from '@angular/http';
+import {Observable}                               from 'rxjs/Observable';
+import {Router}           from '@angular/router';
+import {ProfileService} from "../profile/profile.service";
+import {ProfileComponent} from "../profile/profile.component";
 
 @Injectable()
-export class LoginService {
-    /*private registerURL = 'https://local-sbx.dev.allegiantair.com:8443/g4tc/v1/api/register';  // URL to web api*/
-    private loginURL = 'http://localhost:8080/g4tc/v1/api/login';  // URL to web api
+export class LogoutService {
+    private logoutURL = 'http://localhost:8080/g4tc/v1/api/logout';
+    // URL to web api
 
-    constructor(private http:Http) {
+    constructor(private router: Router, private http: Http) {
     }
 
-    login(model:Login):Observable<Token> {
+    logout() {
 
-        let body = JSON.stringify(model);
-        let headers = new Headers({'Content-Type': 'application/json'});
-        let options = new RequestOptions({headers: headers});
-        console.log(body);
+        let token = localStorage.getItem("token");
+        let id = localStorage.getItem("userId");
 
-        return this.http.post(this.loginURL, body, options)
-            //.map(this.extractData)
-            .map((res: Response) => res.json() as Token)
-            .do(res => console.log("token: " + JSON.stringify(res)))
-            .catch(this.handleError);
-
-        /*this.http.post(this.loginURL, body, options)
-         .map(res => {
-         if (res.status == 401) {
-         alert("Not Authorized");
-         //throw new Error('This request has failed ' + res.status);
-         }
-         // If everything went fine, return the response
-         else {
-         (res:Response) => res.json()
-         }
-
-         })
-         .do(token => console.log("token: " + JSON.stringify(token)))
-         .subscribe(
-         data => this.saveToken(data.token),
-         err => this.handleError(err),
-         () => console.log("Login complete")
-         );*/
-
-
-
-        /*return this.http.post(this.loginURL, body, options)
-            //.map(this.extractData)
-            .map((res: Response) => res.json())
-            .do(res => console.log("token: " + JSON.stringify(res)))
-            .subscribe(
-                token => this.saveToken(token.token),
-                err => this.handleError(err),
-                () => console.log("Login complete")
-            );
-        */
-
-        //.catch(this.handleError);
-
-
-        /*return this.http.post(this.registerURL, body, { headers: this.headers })
-         .map((res: Response) => res.json());*/
-
-        /*return this.http.post(this.registerURL, body, options)
-         .toPromise()
-         .then(response => response.json() as Register[])
-         .catch(this.handleError);*/
+        if (token != null || id != null) {
+            let headers = new Headers({'Content-Type': 'application/json'});
+            headers.append('Authorization', 'Bearer ' + token);
+            headers.append('userId', id);
+            let options = new RequestOptions({headers: headers});
+            this.http.get(this.logoutURL, options)
+                .subscribe(
+                    res => this.success(),
+                    err => this.handleError(err),
+                    () => console.log("Logout complete")
+                );
+        }
+        this.gotoLogin();
     }
 
-    /*private saveToken(token) {
-        localStorage.setItem("token", token);
-    }*/
-
-    /*getProfile(id:number):Promise<Profile> {
-     return this.getProfiles()
-     .then(profiles => profiles.find(profile => profile.id === id));
-     }*/
-
-    private extractData(res:Response) {
-        let body = res.json();
-        console.log("body : " + JSON.stringify(body));
-        return body.data || {};
-    }
-
-    private handleError(error:any) {
+    private handleError(error: any) {
+        localStorage.clear();
         // In a real world app, we might use a remote logging infrastructure
         // We'd also dig deeper into the error to get a better message
-        if(error.status === 401) {
-            alert("Unauthorized");
-        }
         let errMsg = (error.message) ? error.message :
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';
         console.error(errMsg); // log to console instead
-        return Observable.throw(errMsg);
+        //return Observable.throw(errMsg);
+    }
+
+    private gotoLogin() {
+        let link = ['/dashboard'];
+        this.router.navigate(link);
     }
 
 
+    private success() {
+        localStorage.clear();
+    }
 }
