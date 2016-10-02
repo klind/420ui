@@ -11,7 +11,7 @@ import {LogoutService}        from "./logout/logout.service";
     <a routerLink="/register"   routerLinkActive="active">Register</a>
     <a routerLink="/profile"    routerLinkActive="active">Profile</a>
     <a routerLink="/mysurveys"  routerLinkActive="active">Surveys</a>
-    <a routerLink="/survey"  routerLinkActive="active">Survey</a>
+    <!--<a routerLink="/survey"  routerLinkActive="active">Survey</a>-->
     <!--<a routerLink="/answer"     routerLinkActive="active">Answer</a>-->
     <a routerLink="/login"      routerLinkActive="active">Login</a>
     <button (click)="logout()">Logout</button>

@@ -11,7 +11,7 @@ import {Profile} from './profile';
 
 @Injectable()
 export class ProfileService {
-    private profilesURL = 'http://localhost:8080/mms/api/profiles';  // URL to web api
+    private profilesURL = 'http://localhost:8081/mms/api/profiles';  // URL to web api
     constructor(private http: Http) {
     }
 
