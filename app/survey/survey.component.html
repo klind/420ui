@@ -1,0 +1,240 @@
+<h2>Profile</h2>
+
+<div class="container">
+    <h1>Profile Form</h1>
+    <form (ngSubmit)="onSubmit()" #profileForm="ngForm">
+        {{diagnostic}}
+        <div class="form-group form-group-sm">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" required [(ngModel)]="model.email" name="email">
+            <!--<div [hidden]="email.valid" class="alert alert-danger">Email is required</div>-->
+        </div>
+
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" required [(ngModel)]="model.firstName" name="firstName">
+        </div>
+
+        <!--<div class="form-group">
+            <label for="middleName">Middle Name</label>
+            <input type="text" class="form-control" id="middleName" required [(ngModel)]="model.middleName" name="middleName">
+        </div>-->
+
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" required [(ngModel)]="model.lastName" name="lastName">
+        </div>
+
+       <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" class="form-control" id="phone" required [(ngModel)]="model.phone" name="phone">
+        </div>
+
+        <div class="form-group">
+            <label for="weight">Weight in lbs</label>
+            <input type="number" class="form-control" id="weight" required [(ngModel)]="model.weight" name="weight">
+        </div>
+
+        <div class="form-group">
+            <label for="avgOunceMeatDay">Avg ounces of meat consumed daily</label>
+            <input type="number" class="form-control" id="avgOunceMeatDay" required [(ngModel)]="model.avgOunceMeatDay" name="avgOunceMeatDay">
+        </div>
+
+        <div class="form-group">
+            <label for="avgSexWeek">Average # of sexual release/week</label>
+            <input type="number" class="form-control" id="avgSexWeek" required [(ngModel)]="model.avgSexWeek" name="avgSexWeek">
+        </div>
+
+        <div class="form-group">
+            <label for="avgHoursSweatWeek">Avg hours of exercise to a sweat each week</label>
+            <input type="number" class="form-control" id="avgHoursSweatWeek" required [(ngModel)]="model.avgHoursSweatWeek" name="avgHoursSweatWeek">
+        </div>
+
+        <div class="form-group">
+            <label for="avgOuncePotThcWeek">Avg amount (in ounces) of Pot/THC you consume weekly</label>
+            <input type="number" class="form-control" id="avgOuncePotThcWeek" required [(ngModel)]="model.avgOuncePotThcWeek" name="avgOuncePotThcWeek">
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label><br>
+            <input type="radio" name="gender" [(ngModel)]="model.gender" value="M">
+            <label>Male</label><br>
+            <input type="radio" name="gender" [(ngModel)]="model.gender" value="F">
+            <label>Female</label>
+        </div>
+
+        <div class="form-group">
+            <label>Do you take prescription medicin</label><br>
+            <input type="radio" name="onPrescriptionMeds" [(ngModel)]="model.onPrescriptionMeds" [value]="true">
+            <label>Yes</label><br>
+            <input type="radio" name="onPrescriptionMeds" [(ngModel)]="model.onPrescriptionMeds" [value]="false">
+            <label>No</label>
+        </div>
+
+        <div class="form-group">
+            <label>Are you vegetarian</label><br>
+            <input type="radio" name="vegetarian" [(ngModel)]="model.vegetarian" [value]="true">
+            <label>Yes</label><br>
+            <input type="radio" name="vegetarian" [(ngModel)]="model.vegetarian" [value]="false">
+            <label>No</label>
+        </div>
+
+        <div class="form-group">
+            <label>Do you typically prefer indices or salivas or hybrid</label><br>
+            <input type="radio" name="preferSalivas" [(ngModel)]="model.preferSalivas" [value]="true">
+            <label>Yes</label><br>
+            <input type="radio" name="preferSalivas" [(ngModel)]="model.preferSalivas" [value]="false">
+            <label>No</label>
+        </div>
+
+        <div class="form-group">
+            <label>Do you have childen</label><br>
+            <input type="radio" name="children" [(ngModel)]="model.children" [value]="true">
+            <label>Yes</label><br>
+            <input type="radio" name="children" [(ngModel)]="model.children" [value]="false">
+            <label>No</label>
+        </div>
+
+        <div class="form-group">
+            <label>Do you have any genetic items that affect metabolism</label><br>
+            <input type="radio" name="geneticItems" [(ngModel)]="model.geneticItems" [value]="true">
+            <label>Yes</label><br>
+            <input type="radio" name="geneticItems" [(ngModel)]="model.geneticItems" [value]="false">
+            <label>No</label>
+        </div>
+
+        <div class="form-group">
+            <label>Are you generally hot/cold/normal</label><br>
+            <input type="radio" name="hotColdNormal" [(ngModel)]="model.hotColdNormal" value="H">
+            <label>Hot</label><br>
+            <input type="radio" name="hotColdNormal" [(ngModel)]="model.hotColdNormal" value="C">
+            <label>Cold</label><br>
+            <input type="radio" name="hotColdNormal" [(ngModel)]="model.hotColdNormal" value="N">
+            <label>Normal</label>
+        </div>
+
+        <div class="form-group">
+            <label>How much nicotine do you use/day</label><br>
+            <input type="radio" name="amountNicotineDay" [(ngModel)]="model.amountNicotineDay" [value]="1">
+            <label>Nothing</label><br>
+            <input type="radio" name="amountNicotineDay" [(ngModel)]="model.amountNicotineDay" [value]="2">
+            <label>Less than 1/4 pack</label><br>
+            <input type="radio" name="amountNicotineDay" [(ngModel)]="model.amountNicotineDay" [value]="3">
+            <label>Less than 1/2 pack</label><br>
+            <input type="radio" name="amountNicotineDay" [(ngModel)]="model.amountNicotineDay" [value]="4">
+            <label>Less than 3/4 pack</label><br>
+            <input type="radio" name="amountNicotineDay" [(ngModel)]="model.amountNicotineDay" [value]="5">
+            <label>1 Pack</label><br>
+            <input type="radio" name="amountNicotineDay" [(ngModel)]="model.amountNicotineDay" [value]="6">
+            <label>More than 1 Pack</label>
+        </div>
+
+        <div class="form-group">
+            <label>Have you gone through menopause</label><br>
+            <input type="radio" name="hadMenopause" [(ngModel)]="model.hadMenopause" [value]="true">
+            <label>Yes</label><br>
+            <input type="radio" name="hadMenopause" [(ngModel)]="model.hadMenopause" [value]="false">
+            <label>No</label>
+        </div>
+
+        <div class="form-group">
+            <label>How old are you</label><br>
+            <input type="radio" name="ageRange" [(ngModel)]="model.ageRange" [value]="1">
+            <label>25 or under</label><br>
+            <input type="radio" name="ageRange" [(ngModel)]="model.ageRange" [value]="2">
+            <label>26 - 35</label><br>
+            <input type="radio" name="ageRange" [(ngModel)]="model.ageRange" [value]="3">
+            <label>36 - 45</label><br>
+            <input type="radio" name="ageRange" [(ngModel)]="model.ageRange" [value]="4">
+            <label>46 - 55</label><br>
+            <input type="radio" name="ageRange" [(ngModel)]="model.ageRange" [value]="5">
+            <label>56 or over</label>
+        </div>
+
+        <div class="form-group">
+            <label>How many hours of sleep do you get</label><br>
+            <input type="radio" name="sleep" [(ngModel)]="model.sleep" [value]="1">
+            <label><6</label><br>
+            <input type="radio" name="sleep" [(ngModel)]="model.sleep" [value]="2">
+            <label>7</label><br>
+            <input type="radio" name="sleep" [(ngModel)]="model.sleep" [value]="3">
+            <label>8</label><br>
+            <input type="radio" name="sleep" [(ngModel)]="model.sleep" [value]="4">
+            <label>9</label><br>
+            <input type="radio" name="sleep" [(ngModel)]="model.sleep" [value]="5">
+            <label>>10</label>
+        </div>
+
+        <div class="form-group">
+            <label>How many caffeinated drinks per day</label><br>
+            <input type="radio" name="caffeineDrinks" [(ngModel)]="model.caffeineDrinks" [value]="1">
+            <label>0</label><br>
+            <input type="radio" name="caffeineDrinks" [(ngModel)]="model.caffeineDrinks" [value]="2">
+            <label>1</label><br>
+            <input type="radio" name="caffeineDrinks" [(ngModel)]="model.caffeineDrinks" [value]="3">
+            <label>2</label><br>
+            <input type="radio" name="caffeineDrinks" [(ngModel)]="model.caffeineDrinks" [value]="4">
+            <label>3</label><br>
+            <input type="radio" name="caffeineDrinks" [(ngModel)]="model.caffeineDrinks" [value]="5">
+            <label>4+</label>
+        </div>
+
+        <div class="form-group">
+            <label>How many bowel movements (average per day)</label><br>
+            <input type="radio" name="bowelMovement" [(ngModel)]="model.bowelMovement" [value]="1">
+            <label><1</label><br>
+            <input type="radio" name="bowelMovement" [(ngModel)]="model.bowelMovement" [value]="2">
+            <label>1</label><br>
+            <input type="radio" name="bowelMovement" [(ngModel)]="model.bowelMovement" [value]="3">
+            <label>2</label><br>
+            <input type="radio" name="bowelMovement" [(ngModel)]="model.bowelMovement" [value]="4">
+            <label>3</label><br>
+            <input type="radio" name="bowelMovement" [(ngModel)]="model.bowelMovement" [value]="5">
+            <label>4</label>
+        </div>
+
+        <div class="form-group">
+            <label>What is your activity level</label><br>
+            <input type="radio" name="activityLevel" [(ngModel)]="model.activityLevel" [value]="1">
+            <label>None</label><br>
+            <input type="radio" name="activityLevel" [(ngModel)]="model.activityLevel" [value]="2">
+            <label>Light</label><br>
+            <input type="radio" name="activityLevel" [(ngModel)]="model.activityLevel" [value]="3">
+            <label>Average</label><br>
+            <input type="radio" name="activityLevel" [(ngModel)]="model.activityLevel" [value]="4">
+            <label>Active</label><br>
+            <input type="radio" name="activityLevel" [(ngModel)]="model.activityLevel" [value]="5">
+            <label>Very atlethic</label>
+        </div>
+
+        <div *ngIf="model.gender == 'M'" class="form-group">
+            <label>What is your body fat % (http://www.active.com/fitness/calculators/bodyfat)</label><br>
+            <input type="radio" name="bodyfat" [(ngModel)]="model.bodyfat" [value]="1">
+            <label>< 10</label><br>
+            <input type="radio" name="bodyfat" [(ngModel)]="model.bodyfat" [value]="2">
+            <label>11 - 14</label><br>
+            <input type="radio" name="bodyfat" [(ngModel)]="model.bodyfat" [value]="3">
+            <label>15 - 20</label><br>
+            <input type="radio" name="bodyfat" [(ngModel)]="model.bodyfat" [value]="4">
+            <label>21 - 24</label><br>
+            <input type="radio" name="bodyfat" [(ngModel)]="model.bodyfat" [value]="5">
+            <label>> 24</label>
+        </div>
+
+        <div *ngIf="model.gender == 'F'" class="form-group">
+            <label>What is your body fat % (http://www.active.com/fitness/calculators/bodyfat)</label><br>
+            <input type="radio" name="bodyfat" [(ngModel)]="model.bodyfat" [value]="1">
+            <label>< 15</label><br>
+            <input type="radio" name="bodyfat" [(ngModel)]="model.bodyfat" [value]="2">
+            <label>16 - 23</label><br>
+            <input type="radio" name="bodyfat" [(ngModel)]="model.bodyfat" [value]="3">
+            <label>24 - 30</label><br>
+            <input type="radio" name="bodyfat" [(ngModel)]="model.bodyfat" [value]="4">
+            <label>31 - 36</label><br>
+            <input type="radio" name="bodyfat" [(ngModel)]="model.bodyfat" [value]="5">
+            <label>> 36</label>
+        </div>
+
+        <button type="submit" class="btn btn-default" [disabled]="!profileForm.form.valid">Submit</button>
+    </form>
+</div>

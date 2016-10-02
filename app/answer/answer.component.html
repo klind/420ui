@@ -1,0 +1,62 @@
+<h2>Survey</h2>
+
+<div class="container">
+    <h1>{{model.name}}</h1>
+    <form (ngSubmit)="onSubmit()" #surveyForm="ngForm">
+        {{diagnostic}}
+        <div class="form-group form-group-sm">
+            <label for="startTime">What time did you take the medicine? (Start Time)</label>
+            <input type="time" class="form-control" id="starttime" required [(ngModel)]="model.startTime" name="startTime">
+            <!--<div [hidden]="email.valid" class="alert alert-danger">Email is required</div>-->
+        </div>
+
+        <div class="form-group">
+            <label for="startTimeEffect">What time is it when you first start feeling the effects?</label>
+            <input type="time" class="form-control" id="startTimeEffect" required [(ngModel)]="model.startTimeEffect" name="startTimeEffect">
+        </div>
+
+        <div class="form-group">
+            <label for="peakTime">What time is it when you feel the peak?</label>
+            <input type="time" class="form-control" id="peakTime" required [(ngModel)]="model.peakTime" name="peakTime">
+        </div>
+
+       <div class="form-group">
+            <label for="peakLast">How long does the peak last? in minutes</label>
+            <input type="number" class="form-control" id="peakLast" required [(ngModel)]="model.peakLast" name="peakLast">
+        </div>
+
+        <div class="form-group">
+            <label for="timeEffectEnd">What time is it when you started to feel the medicinal effects wear off?</label>
+            <input type="time" class="form-control" id="timeEffectEnd" required [(ngModel)]="model.timeEffectEnd" name="timeEffectEnd">
+        </div>
+
+        <div class="form-group">
+            <label>What was the potency of the peak for you?</label><br>
+            <input type="radio" name="potency" [(ngModel)]="model.potency" [value]="1">
+            <label>None/slight effect</label><br>
+            <input type="radio" name="potency" [(ngModel)]="model.potency" [value]="2">
+            <label>Moderate effect</label><br>
+            <input type="radio" name="potency" [(ngModel)]="model.potency" [value]="3">
+            <label>Strong effect</label><br>
+            <input type="radio" name="potency" [(ngModel)]="model.potency" [value]="4">
+            <label>Very strong effect</label><br>
+            <input type="radio" name="potency" [(ngModel)]="model.potency" [value]="5">
+            <label>Too strong</label>
+        </div>
+
+        <div class="form-group">
+            <label for="potencyStrength">What was the potency strength average for the overall medicinal effects?  (scale 1-5)</label>
+            <input type="number" class="form-control" id="potencyStrength" required [(ngModel)]="model.potencyStrength" name="potencyStrength">
+        </div>
+
+        <div class="form-group">
+            <label>Did you eat during the effects?</label><br>
+            <input type="radio" name="eat" [(ngModel)]="model.eat" [value]="true">
+            <label>Yes</label><br>
+            <input type="radio" name="eat" [(ngModel)]="model.eat" [value]="false">
+            <label>No</label>
+        </div>
+
+        <button type="submit" class="btn btn-default" [disabled]="!surveyForm.form.valid">Submit</button>
+    </form>
+</div>
