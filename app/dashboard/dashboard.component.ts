@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 
 @Component({
     selector: 'my-dashboard',
-    templateUrl: 'app/dashboard.component.html',
+    templateUrl: 'app/dashboard/dashboard.component.html',
     styleUrls: ['app/dashboard.component.css']
 
 })
