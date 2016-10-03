@@ -7,7 +7,7 @@ import { Profile } from '../profile/profile';
 
 @Injectable()
 export class ProfilesService {
-    private profilesURL = 'http://localhost:8080/g4tc/v1/api/profiles';  // URL to web api
+    private profilesURL = 'http://localhost:8080/mmsservice/api/profiles';  // URL to web api
     constructor(private http:Http) {
     }
 

@@ -10,7 +10,7 @@ import { QuestionRange } from './question.range';
 
 @Injectable()
 export class QuestionRangesService {
-    private questionRangesURL = 'http://localhost:8080/g4tc/v1/api/questionranges';  // URL to web api
+    private questionRangesURL = 'http://localhost:8080/mmsservice/api/questionranges';  // URL to web api
     constructor(private http:Http) {
     }
 

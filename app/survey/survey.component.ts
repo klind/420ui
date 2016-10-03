@@ -9,8 +9,6 @@ import {QuestionRange}        from '../question/question.range';
 import {map}                  from "rxjs/operator/map";
 import {Answer}                 from "./answer";
 
-//import {NKDatetime} from 'ng2-datetime/ng2-datetime';
-
 @Component({
     selector: 'survey',
     templateUrl: 'app/survey/survey.component.html'
@@ -29,7 +27,11 @@ export class SurveyComponent implements OnInit {
     onSubmit() {
         console.log(JSON.stringify(this.model))
         this.surveyService.saveSurveyAnswer(this.model)
-            .subscribe();
+            .subscribe(
+                res => this.gotoMySurveys(),
+                err => this.handleError(err),
+                () => console.log("saving survey answer complete")
+            );
     }
 
     ngOnInit(): void {
@@ -54,9 +56,7 @@ export class SurveyComponent implements OnInit {
         this.model.surveyAnswer.name = name;
         this.model.profileId = localStorage.getItem("userId");
         //console.log("Created Answer : " + JSON.stringify(this.model));
-        this.gotoMySurveys();
-
-    }
+     }
 
     gotoMySurveys(): void {
         let link = ['/mysurveys'];

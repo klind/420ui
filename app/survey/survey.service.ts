@@ -7,8 +7,8 @@ import {Answer} from "./answer";
 
 @Injectable()
 export class SurveyService {
-    private surveysURL = 'http://localhost:8080/g4tc/v1/api/surveys';  // URL to web api
-    private answerURL = 'http://localhost:8080/g4tc/v1/api/answers';  // URL to web api
+    private surveysURL = 'http://localhost:8080/mmsservice/api/surveys';  // URL to web api
+    private answerURL = 'http://localhost:8080/mmsservice/api/answers';  // URL to web api
     constructor(private http:Http) {
     }
 
@@ -36,7 +36,7 @@ export class SurveyService {
 
         return this.http.get(this.surveysURL+"/email/"+email, options)
             .map((res:Response) => res.json() as Survey)
-            .do(res => console.log("token: " + JSON.stringify(res)))
+            .do(res => console.log("Survey: " + JSON.stringify(res)))
             .catch(this.handleError);
     }
 
@@ -49,7 +49,7 @@ export class SurveyService {
 
         return this.http.get(this.surveysURL+"/"+id, options)
             .map((res:Response) => res.json() as Survey)
-            .do(res => console.log("token: " + JSON.stringify(res)))
+            .do(res => console.log("Survey: " + JSON.stringify(res)))
             .catch(this.handleError);
     }
 

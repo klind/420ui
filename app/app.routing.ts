@@ -1,7 +1,7 @@
 import {ModuleWithProviders}  from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {Router, ActivatedRoute, Params}               from '@angular/router';
-import {DashboardComponent} from './dashboard.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 import {ProfilesComponent} from "./profiles/profiles.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {RegisterComponent} from "./register/register.component";
