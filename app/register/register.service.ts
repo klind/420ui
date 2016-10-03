@@ -9,7 +9,7 @@ import {Token}                                    from "../shared/token";
 @Injectable()
 export class RegisterService {
     /*private registerURL = 'https://local-sbx.dev.allegiantair.com:8443/mms/api/register';  // URL to web api*/
-    private registerURL = 'http://localhost:8081/mms/api/register';  // URL to web api
+    private registerURL = 'http://localhost:8080/mmsservice/api/register';  // URL to web api
     constructor(private http: Http) {
     }
 

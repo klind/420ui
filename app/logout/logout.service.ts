@@ -7,7 +7,7 @@ import {ProfileComponent} from "../profile/profile.component";
 
 @Injectable()
 export class LogoutService {
-    private logoutURL = 'http://localhost:8081/mms/api/logout';
+    private logoutURL = 'http://localhost:8080/mmsservice/api/logout';
     // URL to web api
 
     constructor(private router: Router, private http: Http) {

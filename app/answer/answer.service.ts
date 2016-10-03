@@ -6,7 +6,7 @@ import { Answer } from '../survey/answer';
 
 @Injectable()
 export class AnswerService {
-    private answersURL = 'http://localhost:8081/mms/api/answers';  // URL to web api
+    private answersURL = 'http://localhost:8080/mmsservice/api/answers';  // URL to web api
     constructor(private http:Http) {
     }
 

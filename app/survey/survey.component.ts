@@ -9,8 +9,6 @@ import {QuestionRange}        from '../question/question.range';
 import {map}                  from "rxjs/operator/map";
 import {Answer}                 from "./answer";
 
-//import {NKDatetime} from 'ng2-datetime/ng2-datetime';
-
 @Component({
     selector: 'survey',
     templateUrl: 'app/survey/survey.component.html'
